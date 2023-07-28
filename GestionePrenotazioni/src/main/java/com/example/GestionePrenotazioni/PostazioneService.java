@@ -14,20 +14,20 @@ public class PostazioneService {
 	@Autowired
 	private PostazioneRepository postazioneRepository;
 
-	public void save(Postazione _postazione) {
-		postazioneRepository.save(_postazione);
-		log.info("Postazione con ID " + _postazione.getId() + " salvata con successo");
+	public void save(Postazione postazione) {
+		postazioneRepository.save(postazione);
+		log.info("Postazione con ID " + postazione.getId() + " salvata con successo");
 
 	}
 
 	// - - - - - - - - - - - - - - - METHOD WITH CUSTOM QUERY
-	public List<Postazione> cercaPostazione(TipoPostazione _tipoPostazione, String _citta) {
-		return postazioneRepository.cercaPostazionePerTipoAndCitta(_tipoPostazione, _citta);
+	public List<Postazione> cercaPostazione(TipoPostazione tipoPostazione, String citta) {
+		return postazioneRepository.cercaPostazionePerTipoAndCitta(tipoPostazione, citta);
 
 	}
 
 	public boolean postazioneLibera() {
-		return false;
+		return postazioneRepository.verificaPostazioneLibera(null, null, null);
 
 	}
 }
