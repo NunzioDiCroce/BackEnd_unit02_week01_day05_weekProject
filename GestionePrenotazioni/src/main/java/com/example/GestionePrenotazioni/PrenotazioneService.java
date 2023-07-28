@@ -1,5 +1,7 @@
 package com.example.GestionePrenotazioni;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,17 @@ public class PrenotazioneService {
 
 	}
 
+	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
+	public boolean prenotazionePossibile(Utente utente, Postazione postazione, LocalDate dataInizio,
+			LocalDate dataFine) {
+		List<Prenotazione> prenotazioniUtente = prenotazioneRepository.cercaPerUtenteAndData(utente, dataInizio,
+				dataFine);
+		if (!prenotazioniUtente.isEmpty()) {
+			return false; // L'UTENTE HA GIA UNA PRENOTAZIONE IN QUELLE DATE
+		}
+
+		List<Prenotazione> prenotazioniPostazione = prenotazioneRepository.cercaPerPostazioneAndData(postazione,
+				dataInizio, dataFine);
+		return prenotazioniPostazione.isEmpty(); // LA POSTAZIONE E' LIBERA IN QUELLE DATE
+	}
 }
