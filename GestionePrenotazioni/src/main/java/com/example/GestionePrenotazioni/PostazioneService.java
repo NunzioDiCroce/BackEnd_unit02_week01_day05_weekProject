@@ -26,4 +26,8 @@ public class PostazioneService {
 
 	}
 
+	public boolean postazioneLibera() {
+		return false;
+
+	}
 }

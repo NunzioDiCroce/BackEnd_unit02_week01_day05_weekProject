@@ -20,7 +20,7 @@ public interface PostazioneRepository extends JpaRepository<Postazione, Long> {
 	@Query("SELECT CASE WHEN COUNT(p) > 0 THEN true ELSE false END " + "FROM Prenotazione pr " + "JOIN pr.postazione p "
 			+ "WHERE p.id = :postazioneId " + "AND pr.inizioPrenotazione <= :dataFine "
 			+ "AND pr.finePrenotazione >= :dataInizio")
-	boolean postazioneLibera(@Param("postazioneId") Long postazioneId, @Param("dataInizio") LocalDate dataInizio,
-			@Param("dataFine") LocalDate dataFine);
+	boolean verificaPostazioneLibera(@Param("postazioneId") Long postazioneId,
+			@Param("dataInizio") LocalDate dataInizio, @Param("dataFine") LocalDate dataFine);
 
 }
