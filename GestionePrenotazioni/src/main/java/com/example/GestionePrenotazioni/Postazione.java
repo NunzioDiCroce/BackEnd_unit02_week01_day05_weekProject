@@ -1,10 +1,13 @@
 package com.example.GestionePrenotazioni;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -42,5 +45,8 @@ public class Postazione {
 
 	@ManyToOne
 	private Edificio edificio;
+
+	@ManyToMany
+	protected Set<Prenotazione> postazioni;
 
 }
