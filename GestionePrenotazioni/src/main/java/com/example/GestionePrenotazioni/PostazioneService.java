@@ -20,8 +20,9 @@ public class PostazioneService {
 
 	}
 
+	// - - - - - - - - - - - - - - - METHOD WITH CUSTOM QUERY
 	public List<Postazione> cercaPostazione(TipoPostazione _tipoPostazione, String _citta) {
-		return postazioneRepository.findByTipoPostazioneAndEdificio_Citta(_tipoPostazione, _citta);
+		return postazioneRepository.cercaPostazionePerTipoAndCitta(_tipoPostazione, _citta);
 
 	}
 
