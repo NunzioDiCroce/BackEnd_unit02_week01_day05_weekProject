@@ -31,12 +31,30 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		log.info("* * * * * * * * * * SAVE * * * * * * * * * *");
 		Edificio primoEdificio = ctx.getBean("PrimoEdificio", Edificio.class);
 		edificioService.save(primoEdificio);
+		Edificio secondoEdificio = ctx.getBean("SecondoEdificio", Edificio.class);
+		edificioService.save(secondoEdificio);
+		Edificio terzoEdificio = ctx.getBean("TerzoEdificio", Edificio.class);
+		edificioService.save(terzoEdificio);
 
-		Postazione primaPostazione = ctx.getBean("PrimaPostazione", Postazione.class);
-		postazioneService.save(primaPostazione);
+		Postazione primaPostazioneMilano = ctx.getBean("PrimaPostazioneMilano", Postazione.class);
+		postazioneService.save(primaPostazioneMilano);
+		Postazione secondaPostazioneMilano = ctx.getBean("SecondaPostazioneMilano", Postazione.class);
+		postazioneService.save(secondaPostazioneMilano);
+		Postazione primaPostazioneRoma = ctx.getBean("PrimaPostazioneRoma", Postazione.class);
+		postazioneService.save(primaPostazioneRoma);
+		Postazione secondaPostazioneRoma = ctx.getBean("SecondaPostazioneRoma", Postazione.class);
+		postazioneService.save(secondaPostazioneRoma);
+		Postazione primaPostazioneNapoli = ctx.getBean("PrimaPostazioneNapoli", Postazione.class);
+		postazioneService.save(primaPostazioneNapoli);
+		Postazione secondaPostazioneNapoli = ctx.getBean("SecondaPostazioneNapoli", Postazione.class);
+		postazioneService.save(secondaPostazioneNapoli);
 
 		Utente primoUtente = ctx.getBean("PrimoUtente", Utente.class);
 		utenteService.save(primoUtente);
+		Utente secondoUtente = ctx.getBean("SecondoUtente", Utente.class);
+		utenteService.save(secondoUtente);
+		Utente terzoUtente = ctx.getBean("TerzoUtente", Utente.class);
+		utenteService.save(terzoUtente);
 
 	}
 
