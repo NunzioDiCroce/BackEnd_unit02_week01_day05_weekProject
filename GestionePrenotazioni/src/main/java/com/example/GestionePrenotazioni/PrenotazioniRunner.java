@@ -23,6 +23,21 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
 				GestionePrenotazioniApplication.class);
 
+		EdificioService edificioService = ctx.getBean(EdificioService.class);
+		PostazioneService postazioneService = ctx.getBean(PostazioneService.class);
+		UtenteService utenteService = ctx.getBean(UtenteService.class);
+
+		log.info("");
+		log.info("* * * * * * * * * * SAVE * * * * * * * * * *");
+		Edificio primoEdificio = ctx.getBean("PrimoEdificio", Edificio.class);
+		edificioService.save(primoEdificio);
+
+		Postazione primaPostazione = ctx.getBean("PrimaPostazione", Postazione.class);
+		postazioneService.save(primaPostazione);
+
+		Utente primoUtente = ctx.getBean("PrimoUtente", Utente.class);
+		utenteService.save(primoUtente);
+
 	}
 
 }
