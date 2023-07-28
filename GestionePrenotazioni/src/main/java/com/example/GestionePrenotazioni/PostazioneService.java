@@ -33,4 +33,5 @@ public class PostazioneService {
 		return postazioneRepository.verificaPostazioneLibera(postazione.getId(), dataInizio, dataFine);
 
 	}
+
 }

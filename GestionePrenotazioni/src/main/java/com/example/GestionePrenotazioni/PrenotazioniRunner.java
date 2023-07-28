@@ -1,6 +1,5 @@
 package com.example.GestionePrenotazioni;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,22 +82,22 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		}
 
 		// - - - - - - - - - - - - - - - ESECUZIONE PRENOTAZIONE
-		PrenotazioneService prenotazioneService = ctx.getBean(PrenotazioneService.class);
-
-		LocalDate dataInizioPrenotazione = LocalDate.of(2023, 7, 31);
-		LocalDate dataFinePrenotazione = dataInizioPrenotazione.plusDays(1);
-		Utente primoUtente = utenteService.getPrimoUtente();
-		Postazione primaPostazioneMilano = postazioneService.getPrimaPostazioneMilano();
-
-		if (prenotazioneService.prenotazionePossibile(primoUtente, primaPostazioneMilano, dataInizioPrenotazione,
-				dataFinePrenotazione)) {
-			Prenotazione primaPrenotazione = new Prenotazione(dataInizioPrenotazione, primoUtente,
-					primaPostazioneMilano);
-			prenotazioneService.save(primaPrenotazione);
-			log.info("Prenotazione effettuata con successo");
-		} else {
-			log.info("Non è possobile effettuare la prenotazione");
-		}
+//		PrenotazioneService prenotazioneService = ctx.getBean(PrenotazioneService.class);
+//
+//		LocalDate dataInizioPrenotazione = LocalDate.of(2023, 7, 31);
+//		LocalDate dataFinePrenotazione = dataInizioPrenotazione.plusDays(1);
+//		Utente primoUtente = utenteService.getUtente();
+//		Postazione primaPostazioneMilano = postazioneService.getPostazione();
+//
+//		if (prenotazioneService.prenotazionePossibile(primoUtente, primaPostazioneMilano, dataInizioPrenotazione,
+//				dataFinePrenotazione)) {
+//			Prenotazione primaPrenotazione = new Prenotazione(dataInizioPrenotazione, primoUtente,
+//					primaPostazioneMilano);
+//			prenotazioneService.save(primaPrenotazione);
+//			log.info("Prenotazione effettuata con successo");
+//		} else {
+//			log.info("Non è possobile effettuare la prenotazione");
+//		}
 	}
 
 }
