@@ -22,6 +22,7 @@ public class PostazioneService {
 	}
 
 	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
+
 	public List<Postazione> cercaPostazione(TipoPostazione tipoPostazione, String citta) {
 		return postazioneRepository.cercaPostazionePerTipoAndCitta(tipoPostazione, citta);
 

@@ -27,11 +27,11 @@ public class PrenotazioneService {
 		List<Prenotazione> prenotazioniUtente = prenotazioneRepository.cercaPerUtenteAndData(utente, dataInizio,
 				dataFine);
 		if (!prenotazioniUtente.isEmpty()) {
-			return false; // L'UTENTE HA GIA UNA PRENOTAZIONE IN QUELLE DATE
+			return false; // L'UTENTE HA GIA UNA PRENOTAZIONE NELLE DATE SELEZIONATE
 		}
 
 		List<Prenotazione> prenotazioniPostazione = prenotazioneRepository.cercaPerPostazioneAndData(postazione,
 				dataInizio, dataFine);
-		return prenotazioniPostazione.isEmpty(); // LA POSTAZIONE E' LIBERA IN QUELLE DATE
+		return prenotazioniPostazione.isEmpty(); // LA POSTAZIONE E' LIBERA NELLE DATE SELEZIONATE
 	}
 }
