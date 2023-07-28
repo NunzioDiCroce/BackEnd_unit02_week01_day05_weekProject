@@ -40,4 +40,10 @@ public class Utente {
 	@OneToMany
 	protected Set<Prenotazione> prenotazioni;
 
+	public Utente(String _userName, String _nome, String _mail) {
+		this.userName = _userName;
+		this.nome = _nome;
+		this.mail = _mail;
+	}
+
 }

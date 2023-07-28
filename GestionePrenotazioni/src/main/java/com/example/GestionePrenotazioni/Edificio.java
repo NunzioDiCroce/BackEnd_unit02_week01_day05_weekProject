@@ -40,4 +40,10 @@ public class Edificio {
 	@OneToMany
 	protected Set<Postazione> postazioni;
 
+	public Edificio(String _nome, String _indirizzo, String _citta) {
+		this.nome = _nome;
+		this.indirizzo = _indirizzo;
+		this.citta = _citta;
+	}
+
 }

@@ -49,4 +49,12 @@ public class Postazione {
 	@OneToMany
 	protected Set<Prenotazione> prenotazioni;
 
+	public Postazione(String _descrizione, TipoPostazione _tipoPostazione, int _numeroMassimoOccupanti,
+			Edificio _edificio) {
+		this.descrizione = _descrizione;
+		this.tipoPostazione = _tipoPostazione;
+		this.numeroMassimoOccupanti = _numeroMassimoOccupanti;
+		this.edificio = _edificio;
+	}
+
 }
