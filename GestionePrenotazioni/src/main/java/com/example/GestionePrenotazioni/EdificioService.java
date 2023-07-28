@@ -14,7 +14,7 @@ public class EdificioService {
 
 	public void save(Edificio _edificio) {
 		edificioRepository.save(_edificio);
-		log.info(_edificio.getNome() + " con ID " + _edificio.getId() + " salvato con successo");
+		log.info("Edificio con ID " + _edificio.getId() + " salvato con successo");
 
 	}
 
