@@ -1,12 +1,11 @@
 package com.example.GestionePrenotazioni;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,10 +36,17 @@ public class Prenotazione {
 	protected LocalDate inizioPrenotazione;
 	protected LocalDate finePrenotazione;
 
-	@ManyToMany
-	protected Set<Utente> utenti;
+	@ManyToOne
+	protected Utente utente;
 
-	@ManyToMany
-	protected Set<Postazione> postazioni;
+	@ManyToOne
+	protected Postazione postazione;
+
+	public Prenotazione(LocalDate _dataInizio, Utente _utente, Postazione _postazione) {
+		this.inizioPrenotazione = _dataInizio;
+		this.finePrenotazione = _dataInizio.plusDays(1);
+		this.utente = _utente;
+		this.postazione = _postazione;
+	}
 
 }
