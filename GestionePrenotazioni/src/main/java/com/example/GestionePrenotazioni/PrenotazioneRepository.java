@@ -19,4 +19,12 @@ public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long
 	List<Prenotazione> cercaPerUtenteAndData(@Param("utente") Utente utente, @Param("dataInizio") LocalDate dataInizio,
 			@Param("dataFine") LocalDate dataFine);
 
+	// - - - - - - - - - - - - - - - CUSTOM QUERY
+	@Query("SELECT p FROM Prenotazione p " + "WHERE p.postazione = :postazione "
+			+ "AND ((p.inizioPrenotazione >= :dataInizio AND p.inizioPrenotazione <= :dataFine) "
+			+ "OR (p.finePrenotazione >= :dataInizio AND p.finePrenotazione <= :dataFine) "
+			+ "OR (p.inizioPrenotazione <= :dataInizio AND p.finePrenotazione >= :dataFine))")
+	List<Prenotazione> cercaPerPostazioneAndData(@Param("postazione") Postazione postazione,
+			@Param("dataInizio") LocalDate dataInizio, @Param("dataFine") LocalDate dataFine);
+
 }
