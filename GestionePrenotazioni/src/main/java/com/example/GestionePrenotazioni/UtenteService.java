@@ -1,7 +1,5 @@
 package com.example.GestionePrenotazioni;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +18,8 @@ public class UtenteService {
 
 	}
 
-	public Optional<Utente> findById(long _id) {
-		return utenteRepository.findById(_id);
+	public Utente findById(long _id) throws ItemNotFoundException {
+		return utenteRepository.findById(_id).orElseThrow(() -> new ItemNotFoundException(_id));
 
 	}
 
