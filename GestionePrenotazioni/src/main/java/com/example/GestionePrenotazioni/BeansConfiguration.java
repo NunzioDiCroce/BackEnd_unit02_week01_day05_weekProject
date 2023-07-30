@@ -1,5 +1,8 @@
 package com.example.GestionePrenotazioni;
 
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -9,6 +12,13 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 
 public class BeansConfiguration {
+
+	@Autowired
+	private UtenteService utenteService;
+	@Autowired
+	private PostazioneService postazioneService;
+	@Autowired
+	private PrenotazioneService prenotazioneService;
 
 	@Bean(name = "PrimoEdificio")
 	public Edificio getPrimoEdificio() {
@@ -68,6 +78,11 @@ public class BeansConfiguration {
 	@Bean(name = "TerzoUtente")
 	public Utente getTerzoUtente() {
 		return new Utente("terzotente", "Claudio Neri", "ClaudioNeri@mail.com");
+	}
+
+	@Bean(name = "PrimaPrenotazione")
+	public Prenotazione getPrimaPrenotazione() {
+		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 15), postazioneService.findById(0));
 	}
 
 }

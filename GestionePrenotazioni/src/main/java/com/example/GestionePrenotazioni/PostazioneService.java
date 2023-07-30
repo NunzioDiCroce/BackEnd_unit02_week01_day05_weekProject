@@ -1,6 +1,7 @@
 package com.example.GestionePrenotazioni;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class PostazioneService {
 		postazioneRepository.save(_postazione);
 		log.info("Postazione con ID " + _postazione.getId() + " salvata con successo");
 
+	}
+
+	public Optional<Postazione> findById(long _id) {
+		return postazioneRepository.findById(_id);
 	}
 
 	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY

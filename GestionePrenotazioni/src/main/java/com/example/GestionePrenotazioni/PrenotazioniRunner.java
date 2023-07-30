@@ -82,22 +82,9 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		// - - - - - - - - - - - - - - - ESECUZIONE PRENOTAZIONE
 		log.info("");
 		log.info("* * * * * * * * * * ESECUZIONE PRENOTAZIONE * * * * * * * * * *");
-//		PrenotazioneService prenotazioneService = ctx.getBean(PrenotazioneService.class);
-//
-//		LocalDate dataInizioPrenotazione = LocalDate.of(2023, 7, 31);
-//		LocalDate dataFinePrenotazione = dataInizioPrenotazione.plusDays(1);
-//		Utente primoUtente = utenteService.getUtente();
-//		Postazione primaPostazioneMilano = postazioneService.getPostazione();
-//
-//		if (prenotazioneService.prenotazionePossibile(primoUtente, primaPostazioneMilano, dataInizioPrenotazione,
-//				dataFinePrenotazione)) {
-//			Prenotazione primaPrenotazione = new Prenotazione(dataInizioPrenotazione, primoUtente,
-//					primaPostazioneMilano);
-//			prenotazioneService.save(primaPrenotazione);
-//			log.info("Prenotazione effettuata con successo");
-//		} else {
-//			log.info("Non è possobile effettuare la prenotazione");
-//		}
+		utenteService.findById(0);
+		postazioneService.findById(0);
+
 	}
 
 }

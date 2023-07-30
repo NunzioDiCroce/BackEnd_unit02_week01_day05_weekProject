@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +22,7 @@ public class PrenotazioneService {
 	}
 
 // - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
+	@Transactional
 	public void effettuaPrenotazione(Utente utente, LocalDate dataPrenotazione, Postazione postazione) {
 
 		Prenotazione prenotazionePostazione = prenotazioneRepository
