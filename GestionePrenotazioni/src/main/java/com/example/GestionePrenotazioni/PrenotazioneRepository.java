@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
 
-	Prenotazione findByPostazioneAndDataPrenotazione(Postazione postazione, LocalDate dataPrenotazione);
+	Prenotazione findByDataPrenotazioneAndPostazione(LocalDate dataPrenotazione, Postazione postazione);
 
 }

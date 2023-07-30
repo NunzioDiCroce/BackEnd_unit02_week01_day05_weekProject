@@ -20,8 +20,11 @@ public class PrenotazioneService {
 
 	}
 
-	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
+// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
 	public void effettuaPrenotazione(Utente utente, LocalDate dataPrenotazione, Postazione postazione) {
-		Prenotazione prenotazione = prenotazioneRepository.cercaPrenotazione(dataPrenotazione, postazione);
+		Prenotazione prenotazione = prenotazioneRepository.findByDataPrenotazioneAndPostazione(dataPrenotazione,
+				postazione);
+
+	}
 
 }
