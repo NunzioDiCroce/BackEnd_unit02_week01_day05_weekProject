@@ -1,6 +1,5 @@
 package com.example.GestionePrenotazioni;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +23,6 @@ public class PostazioneService {
 	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
 	public List<Postazione> cercaPostazione(TipoPostazione tipoPostazione, String citta) {
 		return postazioneRepository.cercaPostazionePerTipoAndCitta(tipoPostazione, citta);
-
-	}
-
-	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
-	public boolean postazioneLibera(Postazione postazione, LocalDate dataInizio, LocalDate dataFine) {
-		return postazioneRepository.verificaPostazioneLibera(postazione.getId(), dataInizio, dataFine);
 
 	}
 

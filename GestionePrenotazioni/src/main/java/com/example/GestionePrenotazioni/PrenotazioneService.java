@@ -22,6 +22,10 @@ public class PrenotazioneService {
 	}
 
 	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
+	public void effettuaPrenotazione(Utente utente, LocalDate dataPrenotazione, Postazione postazione) {
+
+	}
+
 	public boolean prenotazionePossibile(Utente utente, Postazione postazione, LocalDate dataInizio,
 			LocalDate dataFine) {
 		List<Prenotazione> prenotazioniUtente = prenotazioneRepository.cercaPerUtenteAndData(utente, dataInizio,

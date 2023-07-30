@@ -1,6 +1,5 @@
 package com.example.GestionePrenotazioni;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,14 +14,5 @@ public interface PostazioneRepository extends JpaRepository<Postazione, Long> {
 	@Query("SELECT p FROM Postazione p WHERE p.tipoPostazione = :tipoPostazione AND p.edificio.citta = :citta")
 	List<Postazione> cercaPostazionePerTipoAndCitta(@Param("tipoPostazione") TipoPostazione tipoPostazione,
 			@Param("citta") String citta);
-
-	// - - - - - - - - - - - - - - - CUSTOM QUERY
-	// LA QUERY RESTITUISCE 'TRUE' SE LA POSTAZIONE NON E' LIBERA E 'FALSE' SE LA
-	// POSTAZIONE E' LIBERA
-	@Query("SELECT CASE WHEN COUNT(p) > 0 THEN true ELSE false END " + "FROM Prenotazione pr " + "JOIN pr.postazione p "
-			+ "WHERE p.id = :postazioneId " + "AND pr.inizioPrenotazione <= :dataFine "
-			+ "AND pr.finePrenotazione >= :dataInizio")
-	boolean verificaPostazioneLibera(@Param("postazioneId") Long postazioneId,
-			@Param("dataInizio") LocalDate dataInizio, @Param("dataFine") LocalDate dataFine);
 
 }

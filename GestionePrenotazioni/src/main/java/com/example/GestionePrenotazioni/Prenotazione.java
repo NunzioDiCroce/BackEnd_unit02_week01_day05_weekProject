@@ -33,17 +33,17 @@ public class Prenotazione {
 	@GeneratedValue
 	private long id;
 
-	protected LocalDate dataPrenotazione;
-
 	@ManyToOne
 	protected Utente utente;
+
+	protected LocalDate dataPrenotazione;
 
 	@ManyToOne
 	protected Postazione postazione;
 
-	public Prenotazione(LocalDate _dataPrenotazione, Utente _utente, Postazione _postazione) {
-		this.dataPrenotazione = _dataPrenotazione;
+	public Prenotazione(Utente _utente, LocalDate _dataPrenotazione, Postazione _postazione) {
 		this.utente = _utente;
+		this.dataPrenotazione = _dataPrenotazione;
 		this.postazione = _postazione;
 	}
 
