@@ -33,8 +33,7 @@ public class Prenotazione {
 	@GeneratedValue
 	private long id;
 
-	protected LocalDate inizioPrenotazione;
-	protected LocalDate finePrenotazione;
+	protected LocalDate dataPrenotazione;
 
 	@ManyToOne
 	protected Utente utente;
@@ -42,9 +41,8 @@ public class Prenotazione {
 	@ManyToOne
 	protected Postazione postazione;
 
-	public Prenotazione(LocalDate _dataInizio, Utente _utente, Postazione _postazione) {
-		this.inizioPrenotazione = _dataInizio;
-		this.finePrenotazione = _dataInizio.plusDays(1);
+	public Prenotazione(LocalDate _dataPrenotazione, Utente _utente, Postazione _postazione) {
+		this.dataPrenotazione = _dataPrenotazione;
 		this.utente = _utente;
 		this.postazione = _postazione;
 	}
