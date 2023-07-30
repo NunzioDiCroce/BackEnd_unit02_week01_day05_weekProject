@@ -1,7 +1,6 @@
 package com.example.GestionePrenotazioni;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +20,8 @@ public class PostazioneService {
 
 	}
 
-	public Optional<Postazione> findById(long _id) {
-		return postazioneRepository.findById(_id);
+	public Postazione findById(long _id) throws ItemNotFoundException {
+		return postazioneRepository.findById(_id).orElseThrow(() -> new ItemNotFoundException(_id));
 	}
 
 	// - - - - - - - - - - - - - - - METODO CON CUSTOM QUERY
