@@ -82,7 +82,17 @@ public class BeansConfiguration {
 
 	@Bean(name = "PrimaPrenotazione")
 	public Prenotazione getPrimaPrenotazione() {
-		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 15), postazioneService.findById(0));
+		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 28), postazioneService.findById(0));
+	}
+
+	@Bean(name = "SecondaPrenotazione")
+	public Prenotazione getSecondaPrenotazione() {
+		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 28), postazioneService.findById(0));
+	}
+
+	@Bean(name = "TerzaPrenotazione")
+	public Prenotazione getTerzaPrenotazione() {
+		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 31), postazioneService.findById(0));
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.example.GestionePrenotazioni;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class PrenotazioniRunner implements CommandLineRunner {
 	@Autowired
 	private PostazioneService postazioneService;
 	@Autowired
-	private PrenotazioneService prenotazioneService;
+	private static PrenotazioneService prenotazioneService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -82,8 +83,9 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		// - - - - - - - - - - - - - - - ESECUZIONE PRENOTAZIONE
 		log.info("");
 		log.info("* * * * * * * * * * ESECUZIONE PRENOTAZIONE * * * * * * * * * *");
-		utenteService.findById(0);
-		postazioneService.findById(0);
+
+		prenotazioneService.effettuaPrenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 15),
+				postazioneService.findById(0));
 
 	}
 
