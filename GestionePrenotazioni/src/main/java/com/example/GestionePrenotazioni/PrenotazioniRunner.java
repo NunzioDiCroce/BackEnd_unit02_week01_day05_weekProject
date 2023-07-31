@@ -16,11 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PrenotazioniRunner implements CommandLineRunner {
 
 	@Autowired
-	private UtenteService utenteService;
-	@Autowired
-	private PostazioneService postazioneService;
-	@Autowired
-	private static PrenotazioneService prenotazioneService;
+	private PrenotazioneService prenotazioneService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -30,7 +26,7 @@ public class PrenotazioniRunner implements CommandLineRunner {
 
 	}
 
-	public static void configWithAnnotationConfig() {
+	public void configWithAnnotationConfig() {
 
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
 				GestionePrenotazioniApplication.class);
@@ -84,8 +80,8 @@ public class PrenotazioniRunner implements CommandLineRunner {
 		log.info("");
 		log.info("* * * * * * * * * * ESECUZIONE PRENOTAZIONE * * * * * * * * * *");
 
-		prenotazioneService.effettuaPrenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 15),
-				postazioneService.findById(0));
+		prenotazioneService.effettuaPrenotazione(utenteService.findById(303), LocalDate.of(2023, 7, 28),
+				postazioneService.findById(303));
 
 	}
 

@@ -1,7 +1,5 @@
 package com.example.GestionePrenotazioni;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -78,21 +76,6 @@ public class BeansConfiguration {
 	@Bean(name = "TerzoUtente")
 	public Utente getTerzoUtente() {
 		return new Utente("terzotente", "Claudio Neri", "ClaudioNeri@mail.com");
-	}
-
-	@Bean(name = "PrimaPrenotazione")
-	public Prenotazione getPrimaPrenotazione() {
-		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 28), postazioneService.findById(0));
-	}
-
-	@Bean(name = "SecondaPrenotazione")
-	public Prenotazione getSecondaPrenotazione() {
-		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 28), postazioneService.findById(0));
-	}
-
-	@Bean(name = "TerzaPrenotazione")
-	public Prenotazione getTerzaPrenotazione() {
-		return new Prenotazione(utenteService.findById(0), LocalDate.of(2023, 7, 31), postazioneService.findById(0));
 	}
 
 }
